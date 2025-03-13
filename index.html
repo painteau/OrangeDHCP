@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur DHCP Orange</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <h1>Générateur pour option 90 DHCP Orange</h1>
+        <p class="version">version 1.0</p>
+        
+        <div class="alert">
+            <p>Vous pouvez également télécharger <a href="generateur_option_90.zip">Générateur Option 90</a>, un programme Windows qui fait la même chose que ce générateur</p>
+        </div>
+
+        <form class="generator-form">
+            <div class="form-group">
+                <label for="orange">Votre identifiant Orange :</label>
+                <div class="input-prefix">
+                    <span class="prefix">fti/</span>
+                    <input id="orange" placeholder="identifiant Orange" required/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Votre mot de passe Orange :</label>
+                <input type="password" id="password" placeholder="mot de passe Orange" required/>
+            </div>
+
+            <div class="form-group">
+                <label for="salt">Salt :</label>
+                <input id="salt" value="1234567890123456" maxlength="16" size="16" required/>
+            </div>
+
+            <div class="form-group">
+                <label for="byte">Byte :</label>
+                <input id="byte" value="A" maxlength="1" size="1" required/>
+            </div>
+
+            <div class="security-box">
+                <p class="security-note"><span class="security-icon">🔒</span> Vos données sont traitées localement dans votre navigateur et ne sont jamais transmises sur Internet</p>
+            </div>
+
+            <button type="button" id="btn2" class="generate-btn">Générer la chaine</button>
+
+            <div class="form-group output-group">
+                <label for="output">Chaine option DHCP 90 :</label>
+                <div class="output-container">
+                    <textarea id="output" placeholder="La chaine générée apparaîtra ici" readonly></textarea>
+                    <button type="button" id="copy-btn" class="copy-btn" title="Copier dans le presse-papier">
+                        <span class="copy-icon">📋</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    <section class="pfsense-info">
+        <h2>Configuration sous pfSense</h2>
+        <div class="config-details">
+            <h3>Lease Requirements and Requests</h3>
+            <div class="code-container">
+                <code>VLAN tag: 832</code>
+                <button type="button" class="copy-code-btn" title="Copier dans le presse-papier">
+                    <span class="copy-icon">📋</span>
+                </button>
+            </div>
+
+            <h4>Send options</h4>
+            <div class="code-container">
+                <code>dhcp-class-identifier: "sagem", user-class: "+FSVDSL_livebox.Internet.softathome.Livebox4", option-90: 00:00:00:00:00:00:00:00:00:00:00:1a:09:00:00:05:58:01:03:41:01:06:66:74:69:2F:3c:12:31:32:33:34:35:36:37:38:39:30:31:32:33:34:35:36:03:13:41:cc:9e:55:18:68:6d:21:c7:ec:46:81:0e:7d:8e:8e:57</code>
+                <button type="button" class="copy-code-btn" title="Copier dans le presse-papier">
+                    <span class="copy-icon">📋</span>
+                </button>
+            </div>
+
+            <h4>Request options</h4>
+            <div class="code-container">
+                <code>subnet-mask, broadcast-address, dhcp-lease-time, dhcp-renewal-time, dhcp-rebinding-time, domain-search, routers, domain-name-servers, option-90</code>
+                <button type="button" class="copy-code-btn" title="Copier dans le presse-papier">
+                    <span class="copy-icon">📋</span>
+                </button>
+            </div>
+
+            <h4>Option modifiers</h4>
+            <div class="code-container">
+                <code>vlan-pcp: 6</code>
+                <button type="button" class="copy-code-btn" title="Copier dans le presse-papier">
+                    <span class="copy-icon">📋</span>
+                </button>
+            </div>
+        </div>
+    </section>
+    </main>
+    <footer class="footer">
+        <p>Sources : 
+            <a href="https://jsfiddle.net/kgersen/3p854b9e/" target="_blank">JSFiddle Original</a>,
+            <a href="https://lafibre.info/remplacer-livebox/durcissement-du-controle-de-loption-9011-et-de-la-conformite-protocolaire/" target="_blank">LaFibre.info - Contrôle Option 90</a>,
+            <a href="https://lafibre.info/remplacer-livebox/cacking-nouveau-systeme-de-generation-de-loption-90-dhcp/" target="_blank">LaFibre.info - Système Option 90</a>
+        </p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
