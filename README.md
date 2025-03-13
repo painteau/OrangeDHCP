@@ -2,7 +2,13 @@
 
 Un outil web simple pour générer la chaîne option 90 DHCP nécessaire pour se connecter au réseau Orange sans utiliser la Livebox.
 
-![Capture d'écran du générateur](screenshot.png)
+## Captures d'écran
+
+### Version Web
+![Capture d'écran de la version web](screenshot_html.png)
+
+### Version Windows
+![Capture d'écran de la version Windows](screenshot_windows.png)
 
 ## Fonctionnalités
 
@@ -11,6 +17,15 @@ Un outil web simple pour générer la chaîne option 90 DHCP nécessaire pour se
 - Interface simple et intuitive
 - Boutons de copie pour faciliter l'utilisation des paramètres
 - Instructions de configuration pour pfSense
+
+## Version en ligne
+
+Une version en ligne de cet outil est disponible à l'adresse suivante :
+[https://painteau.github.io/OrangeDHCP/](https://painteau.github.io/OrangeDHCP/)
+
+Cette version web vous permet d'utiliser l'application directement dans votre navigateur sans avoir besoin de l'installer.
+
+Vous pouvez également télécharger directement le programme exécutable pour Windows depuis le dépôt via le fichier [generateur_option_90.zip](generateur_option_90.zip).
 
 ## Utilisation
 
@@ -35,6 +50,8 @@ La génération de l'option 90 DHCP suit un algorithme spécifique imposé par O
 
 Cette méthode reproduit exactement le calcul effectué par la Livebox d'Orange, permettant ainsi d'utiliser votre propre routeur tout en s'authentifiant correctement sur le réseau Orange.
 
+Pour une explication technique détaillée de l'algorithme, consultez le fichier [TECHNICAL_DOCUMENTATION.md](TECHNICAL_DOCUMENTATION.md) inclus dans ce dépôt.
+
 ## Configuration pfSense
 
 Le générateur inclut les paramètres nécessaires pour configurer pfSense :
@@ -55,9 +72,11 @@ Le générateur inclut les paramètres nécessaires pour configurer pfSense :
 
 Aucun serveur web n'est nécessaire, l'application fonctionne entièrement dans votre navigateur.
 
+Vous pouvez également utiliser directement la [version en ligne](https://painteau.github.io/OrangeDHCP/) sans installation.
+
 ## Alternative Windows
 
-Une version Windows de cet outil est également disponible. Vous pouvez la télécharger depuis l'application web.
+Une version Windows de cet outil est disponible sous forme d'application exécutable, développée par rooot. Vous pouvez la télécharger directement depuis ce dépôt via le fichier [generateur_option_90.zip](generateur_option_90.zip) ou depuis l'application web.
 
 ## Sécurité
 
@@ -65,9 +84,10 @@ Toutes les opérations sont effectuées localement dans votre navigateur. Vos id
 
 ## Sources et crédits
 
-- [JSFiddle Original](https://jsfiddle.net/kgersen/3p854b9e/)
+- [JSFiddle Original](https://jsfiddle.net/kgersen/3p854b9e/) par kgersen, auteur du script original
 - [LaFibre.info - Contrôle Option 90](https://lafibre.info/remplacer-livebox/durcissement-du-controle-de-loption-9011-et-de-la-conformite-protocolaire/)
 - [LaFibre.info - Système Option 90](https://lafibre.info/remplacer-livebox/cacking-nouveau-systeme-de-generation-de-loption-90-dhcp/)
+- Programme Windows développé par rooot
 
 ## Licence
 
